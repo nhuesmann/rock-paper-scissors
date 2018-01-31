@@ -1,0 +1,10 @@
+.PlayArea {
+  background-color: rgb(177, 177, 248);
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-rows: 250px 100px 250px;
+  grid-template-areas:
+    'opp opp opp'
+    '. inf .'
+    'ply ply ply';
+}

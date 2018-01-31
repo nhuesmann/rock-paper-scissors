@@ -1,0 +1,10 @@
+.OptionButton {
+  cursor: pointer;
+  flex: 1;
+  font-size: 2em;
+  border-radius: 10px;
+}
+
+.OptionButton:focus {
+  outline: 0;
+}

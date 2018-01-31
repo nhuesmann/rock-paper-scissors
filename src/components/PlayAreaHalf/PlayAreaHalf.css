@@ -1,0 +1,19 @@
+.PlayAreaHalf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player {
+  composes: PlayAreaHalf;
+  grid-area: ply;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.opponent {
+  composes: PlayAreaHalf;
+  grid-area: opp;
+  flex-direction: column-reverse;
+  padding-bottom: 50px;
+}
