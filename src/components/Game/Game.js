@@ -25,6 +25,8 @@ class Game extends Component {
         }
         */
       },
+      tie: false,
+      winner: false,
     };
 
     this.handleOptionClick = this.handleOptionClick.bind(this);
@@ -36,13 +38,30 @@ class Game extends Component {
     const opponentChoice = options[Math.floor(Math.random() * 3)];
 
     const winner = this.calculateRoundWinner(choice, opponentChoice);
-    console.log(winner);
+
+    if (!winner) {
+      return this.setState({ ...this.state, tie: true });
+    }
+
+    const loser = winner === 'player' ? 'opponent' : 'player';
+
+    const turn = {
+      player: {
+        move: choice,
+      },
+      opponent: {
+        move: opponentChoice,
+      },
+    };
+
+    turn[winner].winner = true;
+    turn[loser].winner = false;
 
     const player = { ...this.state.player };
-    player.moves.push(choice);
+    player.moves.push(turn.player);
 
     const opponent = { ...this.state.opponent };
-    opponent.moves.push(opponentChoice);
+    opponent.moves.push(turn.opponent);
 
     this.setState({ player, opponent });
 
@@ -83,7 +102,7 @@ class Game extends Component {
 
     return (
       <div className={styles.Game}>
-        <PlayArea players={players} />
+        <PlayArea players={players} tie={this.state.tie} />
         <OptionButtons onClick={this.handleOptionClick} />
       </div>
     );

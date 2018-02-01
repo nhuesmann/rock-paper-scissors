@@ -1,6 +1,18 @@
 .PlayerMove {
   /* width: 50px;
   height: 50px; */
+  position: relative;
   margin: 0 20px;
   font-size: 2em;
+}
+
+.losingMove {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: red;
+  font-size: 1.2em;
+  font-weight: 100;
 }
